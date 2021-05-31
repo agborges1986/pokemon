@@ -1,12 +1,30 @@
 *{
     text-align: center;
+    margin: 0px;
+    padding: opx;
 }
 .box-pokemon{
     margin: 10px;
 }
+.pokemon_info{
+    margin: 10px;
+    border: red 10px solid;
+    padding: 25px;
+}
+.pokemon_info, li{
+    text-align: justify;
+    padding: 0px;
+}
+.pokemon_info, img{
+    text-align: center;
+}
 
-img{
-    width: 10rem;
-    height: 10rem;
-    /* border: 1px red solid; */
+/* 
+ */
+.ctdad{
+    margin: 5px;
+}
+
+.cointainer{
+    margin: 0px;
 }
