@@ -35,7 +35,7 @@ $(document).ready(function () {
             $('.pokemon_info').empty()
             $('.pokemon_info').append('<h1>'+res.name+'</h1>');
             $('.pokemon_info').append('<img class="shadow m-2 bg-white rounded" src="http://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/'+1+'.png"></img>');
-            $('.pokemon_info').append('<h4>Tipos</h4>');
+            $('.pokemon_info').append('<h4>Tipos:</h4>');
             for (let index = 0; index < res.types.length; index++) {
                 $('.pokemon_info').append(`<ul><li>${res.types[index].type.name}</li></ul>`)
             }

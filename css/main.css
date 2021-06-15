@@ -2,22 +2,30 @@
     text-align: center;
     margin: 0px;
     padding: opx;
+    /* border: blue solid 1px */
 }
 .box-pokemon{
     margin: 10px;
 }
 .pokemon_info{
-    margin: 10px;
-    border: red 10px solid;
+    margin: 15px 30px;
+    border: red 25px solid;
     padding: 25px;
+    min-width: 250px;
 }
-.pokemon_info, li{
-    text-align: justify;
-    padding: 0px;
-}
-.pokemon_info, img{
-    text-align: center;
-}
+    .pokemon_info, li{
+        text-align: center;
+        padding: 0px;
+        display: inline-block;
+    }
+    .pokemon_info, ul{
+        text-align: center;
+        padding: 0px 15px;
+        margin-left: 5px;
+    }
+    .pokemon_info, img{
+        text-align: center;
+    }
 
 /* 
  */
