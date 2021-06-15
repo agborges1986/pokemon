@@ -15,7 +15,7 @@ function poke_info(params) {
             $('.pokemon_info').empty()
             $('.pokemon_info').append('<h1>'+res.name+'</h1>');
             $('.pokemon_info').append('<img class="shadow m-2 bg-white rounded" src="http://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/'+i+'.png"></img>');
-            $('.pokemon_info').append('<p>Tipos</p>');
+            $('.pokemon_info').append('<h4>Tipos</h4>');
             for (let index = 0; index < res.types.length; index++) {
                 $('.pokemon_info').append(`<ul><li>${res.types[index].type.name}</li></ul>`)
             }
@@ -23,14 +23,15 @@ function poke_info(params) {
             $('.pokemon_info').append(`<p>${res.height}</p>`);
             $('.pokemon_info').append('<h4>Weight</h4>');
             $('.pokemon_info').append(`<p>${res.weight}</p>`);
-        }, "json");    
+        }, "json");
+        $([document.documentElement, document.body]).animate({
+            scrollTop: $(".pokemon_info").offset().top
+        }, 200);
 }
 
 $(document).ready(function () {
     $(".box-pokemon").html(add_pk(151));
     html_card="";
-        var i=$(this).attr('1');
-        console.log(i);
         $.get('https://pokeapi.co/api/v2/pokemon/'+1+'/', function(res) {
             $('.pokemon_info').empty()
             $('.pokemon_info').append('<h1>'+res.name+'</h1>');
