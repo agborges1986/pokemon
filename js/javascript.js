@@ -7,6 +7,24 @@ function add_pk(ctdad_pk){
     }
         return html_add;
 }
+function poke_info(params) {
+    html_card="";
+        var i=$(params).attr('id');
+        /* console.log(i); */
+        $.get('https://pokeapi.co/api/v2/pokemon/'+i+'/', function(res) {
+            $('.pokemon_info').empty()
+            $('.pokemon_info').append('<h1>'+res.name+'</h1>');
+            $('.pokemon_info').append('<img class="shadow m-2 bg-white rounded" src="http://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/'+i+'.png"></img>');
+            $('.pokemon_info').append('<p>Tipos</p>');
+            for (let index = 0; index < res.types.length; index++) {
+                $('.pokemon_info').append(`<ul><li>${res.types[index].type.name}</li></ul>`)
+            }
+            $('.pokemon_info').append('<h4>Height</h4>');
+            $('.pokemon_info').append(`<p>${res.height}</p>`);
+            $('.pokemon_info').append('<h4>Weight</h4>');
+            $('.pokemon_info').append(`<p>${res.weight}</p>`);
+        }, "json");    
+}
 
 $(document).ready(function () {
     $(".box-pokemon").html(add_pk(151));
@@ -30,22 +48,11 @@ $(document).ready(function () {
     $('.btn').click(function () { 
         $(".box-pokemon").html(add_pk($('.ctdad').val()));
     });
+    
     $('img').click(function () {
-        html_card="";
-        var i=$(this).attr('id');
-        /* console.log(i); */
-        $.get('https://pokeapi.co/api/v2/pokemon/'+i+'/', function(res) {
-            $('.pokemon_info').empty()
-            $('.pokemon_info').append('<h1>'+res.name+'</h1>');
-            $('.pokemon_info').append('<img class="shadow m-2 bg-white rounded" src="http://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/'+i+'.png"></img>');
-            $('.pokemon_info').append('<p>Tipos</p>');
-            for (let index = 0; index < res.types.length; index++) {
-                $('.pokemon_info').append(`<ul><li>${res.types[index].type.name}</li></ul>`)
-            }
-            $('.pokemon_info').append('<h4>Height</h4>');
-            $('.pokemon_info').append(`<p>${res.height}</p>`);
-            $('.pokemon_info').append('<h4>Weight</h4>');
-            $('.pokemon_info').append(`<p>${res.weight}</p>`);
-        }, "json");    
+        poke_info(this);
+    });
+    $(document).on('click', 'img', function(){
+        poke_info(this);
     });
 });
